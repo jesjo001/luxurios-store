@@ -5,27 +5,51 @@ import shoe from '../uploads/product-1.jpg';
 
 const data = [
     {
-        img: shoe,
+        img: "product-1.jpg",
         title: "Sport Sneakers",
-        description: "asf asdfa asdas asdf asd asd asd asd asd asd asd asd ",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
-        img: shoe,
+        img: "product-2.jpg",
         title: "Sport Sneakers",
-        description: "asf asdfa asdas asdf asd asd asd asd asd asd asd asd ",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
-        img: shoe,
+        img: "product-3.jpg",
         title: "Sport Sneakers",
-        description: "asf asdfa asdas asdf asd asd asd asd asd asd asd asd ",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
-        img: shoe,
+        img: "product-4.jpg",
         title: "Sport Sneakers",
-        description: "asf asdfa asdas asdf asd asd asd asd asd asd asd asd ",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
+        price: "$123"
+    },
+    {
+        img: "product-2.jpg",
+        title: "Sport Sneakers",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
+        price: "$123"
+    },
+    {
+        img: "product-3.jpg",
+        title: "Sport Sneakers",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
+        price: "$123"
+    },
+    {
+        img: "product-4.jpg",
+        title: "Sport Sneakers",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
+        price: "$123"
+    },
+    {
+        img: "product-4.jpg",
+        title: "Sport Sneakers",
+        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     }
 ]
@@ -37,7 +61,7 @@ const Home = () => {
                     data.map((item, index) => {
                         return (
                             <ProductCard 
-                                img={item.shoe} 
+                                img={item.img} 
                                 title={item.title}
                                 description={item.description}
                                 price={item.price}
@@ -46,8 +70,7 @@ const Home = () => {
                         )
                     })
                 }
-                 <ProductCard />
-                <ProductCard />
+                 
             </HorizontalSection>
         </div>
     )
