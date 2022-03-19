@@ -40,6 +40,15 @@ const Product = styled.div`
   border-top: 1px solid #DEE2E2;
   border-right: 1px solid #DEE2E2;
 
+  @media (max-width: 1092px) {
+    width: 50%;
+  }
+
+  @media (max-width: 344px) {
+    width: 100%;
+    height: 20%;
+  }
+
 `
 const TitleContainer = styled.div`
   position:absolute;
@@ -54,7 +63,6 @@ const ProductTitle = styled.h3`
   font-style: bold;
   font-size: 1.5em;
   font-family: 'Anton', sans-serif;
-
 `
 
 const TitleContainerBottom = styled.div`
@@ -78,12 +86,10 @@ const SubTitle = styled.h3`
   color: grey;
   margin: 0px;
   padding:0px;
-
 `
 const ProductImage = styled.img`
   with: 100%;
   height: 100%;
-
 `
 
 const BrandContainer = styled.div`
