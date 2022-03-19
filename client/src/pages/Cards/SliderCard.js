@@ -2,12 +2,22 @@ import React from 'react';
 import styled from 'styled-components'
 import { Button, Radio } from 'antd';
 
-export default function ProductCard({img, title, description, price}) {
+export default function ProductCard({img, id, title, description, price, onClick}) {
+  
+  
+
   return (
-    <Container>
+    <Container id={id} onClick={() => onClick(id)}>
         <ImageContainer>
-          <img style={{ width: "100%", position: "relative", zIndex: 10,   borderTopRightRadius: 15,
-  borderTopLeftRadius: 15 }} src={process.env.PUBLIC_URL+`/images/${img}`} />
+          <img style={{ 
+            width: "100%", 
+            position: "relative", 
+            zIndex: 10,   
+            borderTopRightRadius: 15,
+            borderTopLeftRadius: 15 
+          }} src={process.env.PUBLIC_URL+`/images/${img}`} 
+          />
+
         </ImageContainer>
 
         <ProductTitle>{title? title : ""}</ProductTitle>

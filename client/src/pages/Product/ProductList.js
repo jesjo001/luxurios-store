@@ -5,57 +5,18 @@ import logo from '../../uploads/product-1.jpg';
 import ProductItem from './Product';
 
 
+const ProductList = ({ data, addToCart, navigateToPage }) => {
 
-const data = [
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  },
-  {
-    productTitle: "Nike Air Max",
-    brandName: "Nike",
-    price: "$123"
-  }
-]
-
-const ProductList = (props) => {
   return (
     <Container>
       {
         data.map( (item, index) =>{
           return (
-            <ProductItem prodTitle={item.productTitle} brandName={item.brandName} price={item.price} />
+            <ProductItem 
+              item={item} 
+              addToCart={addToCart} 
+              navigateToPage={navigateToPage} 
+            />
           )
         })
       }
