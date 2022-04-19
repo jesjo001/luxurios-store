@@ -2,61 +2,69 @@ import React from 'react'
 import styled from 'styled-components'
 import { Carousel } from 'antd';
 import ProductCard from './Cards/ProductCard'
-import SliderCard from './Cards/SliderCard'
+import SliderCard from './Cards/SliderCard2'
 import CartegoryCard from './Cards/CartegoryCard'
 import FullCard from './Cards/Categories/FullCard'
 import shoe from '../uploads/product-1.jpg';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { useHistory } from "react-router-dom";
 import Slider from "react-slick";
 
 
 const data = [
     {
+        id: "avrvsergrdfvsrg",
         img: "product-1.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrgadfrfgdfvsrg",
         img: "product-2.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrvsergavcargvf",
         img: "product-3.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrvsergrgvsdfbthb",
         img: "product-4.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrvsergadgergvrfvrdf",
         img: "product-2.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrsrgvsdgvfdg7yf897",
         img: "product-3.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrsgbkjngdgvfv",
         img: "product-4.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
         price: "$123"
     },
     {
+        id: "avrvsdthbytkujhndrt",
         img: "product-4.jpg",
         title: "Sport Sneakers",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
@@ -64,6 +72,16 @@ const data = [
     }
 ]
 const Home = () => {
+    let history = useHistory();
+
+    const navigateToPage = (id) => {
+        console.log(id)
+        history.push(`/shop/${id}`);
+    }
+
+    const addToCart = (id) => {
+        console.log(id)
+    }
 
     const renderPupular = () => data.map(item => (
             <SliderCard
@@ -71,6 +89,9 @@ const Home = () => {
                 title={item.title}
                 description={item.description}
                 price={item.price}
+                id={item.id}
+                onClick={navigateToPage}
+                addToCart={addToCart}
             />
     ))
     
@@ -84,6 +105,7 @@ const Home = () => {
                     data.map((item, index) => {
                         return (
                             <ProductCard 
+                                item={item}
                                 img={item.img} 
                                 title={item.title}
                                 description={item.description}
@@ -91,6 +113,7 @@ const Home = () => {
                                 style={{
                                     width: '400px'
                                 }}
+                                onClick={navigateToPage}
                             />
                
                         )
@@ -100,7 +123,6 @@ const Home = () => {
             </HorizontalSection>
 
             <HorizontalSection style={{backgroundColor: '#F5F5F5', margin: '0px', padding: '0px'}}>
-
                 <CartegoryCard
                     width="500px"
                     height="400px"

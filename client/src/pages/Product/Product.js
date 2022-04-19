@@ -3,26 +3,27 @@ import styled from 'styled-components'
 import logo from '../../uploads/product-1.jpg';
 
 
-export default function ProductItem({ prodTitle, brandName, price}) {
+export default function ProductItem({ item, addToCart, navigateToPage }) {
 
   return (
-          <Product>
+          <Product onClick={() => navigateToPage(item.id)}>
 
             <TitleContainer>
-            <ProductTitle>Brand Name</ProductTitle>
-            <SubTitle> {prodTitle ? prodTitle : ""} </SubTitle>
+              <ProductTitle>Brand Name</ProductTitle>
+              <SubTitle> {item.productTitle ? item.productTitle : "" } </SubTitle>
             </TitleContainer>
 
             <ProductImage src={logo} />
 
             <TitleContainerBottom>
                 <BrandContainer>
-                <SubTitle>Brand: </SubTitle>
-                <BrandName>{ brandName ? brandName : ""}</BrandName>
+                  <SubTitle>Brand: </SubTitle>
+                  <BrandName>{ item.brandName ? item.brandName : "" }</BrandName>
                 </BrandContainer>
 
-                <PriceText>{ price ? price : ""}</PriceText>
-
+                <PriceText onClick={() => addToCart(item.id)}>
+                  { item.price ? item.price : "" }
+                </PriceText>
             </TitleContainerBottom>
 
       </Product>

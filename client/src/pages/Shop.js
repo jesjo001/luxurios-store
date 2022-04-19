@@ -9,7 +9,7 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-
+import { useHistory } from "react-router-dom";
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -37,11 +37,72 @@ const CustomizedSlider = styled(SwipeableDrawer)`
   }
 `;
 
+const data = [
+  {
+    id: "avrvsergrdfvsdgbtdtdfb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "avrvsergrdfagsvdsfdfgvb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "avrvsergrsdfvfdb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "avrvsergrdfvsdfvdfbvvfb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "ASgvrgvfdfvsdgbtdtdfb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "avrvagvafvsdfgvcfds",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "sdgbsfdbrtyhbtdtdfb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  },
+  {
+    id: "afsrfdgcvfsdvrgfvgbtdtdfb",
+    productTitle: "Nike Air Max",
+    brandName: "Nike",
+    price: "$123"
+  }
+]
+
 const Shop = () => {
+    let history = useHistory();
 
     const [currency, setCurrency] = React.useState('EUR');
     const [anchor, setAnchor] = React.useState('bottom');
     const { Option } = Select;
+
+    const navigateToPage = (id) => {
+        console.log(id);
+        history.push(`/shop/${id}`);
+    }
+
+    const addToCart = (id) => {
+        console.log(id);
+    }
 
     function handleSelect(value) {
         console.log(`selected ${value}`);
@@ -240,7 +301,11 @@ const Shop = () => {
                     </FilterContainer>
                 </Sidebar>
                 <ProductArea>
-                  <ProductList />
+                  <ProductList 
+                      data={data} 
+                      navigateToPage={navigateToPage}
+                      addToCart={addToCart}
+                   />
                 </ProductArea>
 
                 <CustomizedSlider

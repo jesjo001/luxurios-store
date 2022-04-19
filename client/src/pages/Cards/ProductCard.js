@@ -2,21 +2,29 @@ import React from 'react';
 import styled from 'styled-components'
 import { Button, Radio } from 'antd';
 
-export default function ProductCard({img, title, description, price}) {
+export default function ProductCard({ item, onClick, addToCart }) {
+
+
   return (
-    <Container>
+    <Container onClick={() => onClick(item.id)}>
         <ImageContainer>
-          <img style={{ width: "100%", position: "relative", zIndex: 10,   borderTopRightRadius: 15,
-  borderTopLeftRadius: 15 }} src={process.env.PUBLIC_URL+`/images/${img}`} />
+          <img style={{ 
+            width: "100%", 
+            position: "relative", 
+            zIndex: 10,   
+            borderTopRightRadius: 15,
+            borderTopLeftRadius: 15 
+          }} src={process.env.PUBLIC_URL+`/images/${item.img}`} 
+          />
         </ImageContainer>
 
-        <ProductTitle>{title? title : ""}</ProductTitle>
-        <ProductDescription>{ description? description : ""} </ProductDescription>
+        <ProductTitle>{ item.title? item.title : ""}</ProductTitle>
+        <ProductDescription>{ item.description? item.description : ""} </ProductDescription>
 
         <BottomContainer>
-          <PriceTag> { price ? price : ""} </PriceTag>
+          <PriceTag> { item.price ? item.price : ""} </PriceTag>
             
-          <Button type="primary" shape="round" size="large">
+          <Button type="primary" shape="round" size="large" onClick={() => addToCart(item.id)}>
             Add to Cart
           </Button>
         </BottomContainer>
