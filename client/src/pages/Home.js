@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Carousel } from 'antd';
 import ProductCard from './Cards/ProductCard'
-import SliderCard from './Cards/SliderCard'
+import SliderCard from './Cards/SliderCard2'
 import CartegoryCard from './Cards/CartegoryCard'
 import FullCard from './Cards/Categories/FullCard'
 import shoe from '../uploads/product-1.jpg';

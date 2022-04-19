@@ -48,58 +48,72 @@ const productData = [
     {
         id: "avrvsergrdfvsrg",
         img: "product-1.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1,
+        category: 'Sneakers',
     },
     {
         id: "avrgadfrfgdfvsrg",
         img: "product-2.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1,
+        category: 'Sneakers',
     },
     {
         id: "avrvsergavcargvf",
         img: "product-3.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1,
+        category: 'Sneakers',
     },
     {
         id: "avrvsergrgvsdfbthb",
         img: "product-4.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1,
+        category: 'Sneakers',
     },
     {
         id: "avrvsergadgergvrfvrdf",
         img: "product-2.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1,
+        category: 'Sneakers',
     },
     {
         id: "avrsrgvsdgvfdg7yf897",
         img: "product-3.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1,
+        category: 'Sneakers',
     },
     {
         id: "avrsgbkjngdgvfv",
         img: "product-4.jpg",
-        title: "Sport Sneakers",
-        description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        title: "Nike Air Max Pro Max 2022",
+        category: 'Sneakers',
+           price: "$123",
+        qty: 1
     },
     {
         id: "avrvsdthbytkujhndrt",
         img: "product-4.jpg",
-        title: "Sport Sneakers",
+        title: "Nike Air Max Pro Max 2022",
         description: "Sollicitudin arcu morbi sem amet molestie tempus lorem ipsum ex morbi purus suspendisse maximus sem quis arcu ipsum portaest condimentum et nec proin tristique ut.",
-        price: "$123"
+        price: "$123",
+        qty: 1
     }
 ]
 
@@ -123,115 +137,71 @@ const SingleProductPage = () => {
     
     return (
         <Container>
-            <HorizontalSection>
-                <BoxContainer>
-                    <ProductImage  
-                        src={process.env.PUBLIC_URL+`/images/${mainImage}`}  
-                    />
-                </BoxContainer>
-                <BoxContainer sx={{ padding: '40px'}}>
-                    <ProductTitle>Nike Air Max Pro 2022</ProductTitle>
-                    <Box sx={{ width: '600px'}}>
-                        {product.description}
-                    </Box>
-                    
-                    <Box sx={{ width: '600px', padding: '40px', paddingLeft: '0px'}}>
-                        <Box sx={{ fontSize: '1.1em', color: 'gray', fontWeight: '600', paddingBottom: '10px' }}> Color Variation: </Box>
-                        { product.color.map((item, index) => {
-                            if(item === 'mixed') {
-                                return (
-                                <Tooltip title={item} >
-                                  <Button style={{ backgroundColor:`${item}`, marginRight: '10px' }}  > 
-                                      Mixed
-                                  </Button>
-                                </Tooltip>
-                            )
-                            }else  return (
-                                <Tooltip title={item} >
-                                  <Button style={{ backgroundColor:`${item}`, marginRight: '10px' }} shape="circle" icon={<CheckOutlined color="white" style={{ color: 'white' }}/>} />
-                                </Tooltip>
-                            )
-                        })}
-                    </Box>
 
-                    <Box sx={{ width: '600px', padding: '40px', paddingLeft: '0px', paddingTop: '10px' }}>
-                        <Box sx={{ fontSize: '1.1em', color: 'gray', fontWeight: '600', paddingBottom: '10px' }}> Product Pictures: </Box>
-
-                        <PreviewImageContainer>
-                            { product.pictures.map((item, index) => {
-                                return (
-                                    <Box sx={{ height: '50px', marginRight: '10px'  }} >
-                                      <PreviewImage  
-                                        src={process.env.PUBLIC_URL+`/images/${item}`}  
-                                        onClick={()=> setMainImage(item)}
-                                      />
-                                    </Box>
+            <CartSection>
+                <CartList>
+                    {
+                        productData.map((item, index)=> {
+                            return(
+                                <HorizontalSection>
+                                    <BoxContainer>
+                                        <ProductImage  
+                                            src={process.env.PUBLIC_URL+`/images/${mainImage}`}  
+                                        />
+                                    </BoxContainer>
+                                    <ItemContainer sx={{ padding: '40px'}}>
+                                       <ProductSubTitle> {item.category} </ProductSubTitle>
+                                       <ProductTitle> {item.title}</ProductTitle>
+                                    </ItemContainer>
+                                    <BoxContainer style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                                        <PriceTag>$150</PriceTag>
+                                        <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-arround', alignItems: 'center', fontSize: '1.6em'}}>
+                                            <QtyButton> - </QtyButton>
+                                            <span style={{ marginLeft: '15px', marginRight: '15px'}}>{item.qty}</span>
+                                            <QtyButton> + </QtyButton>
+                                        </Box>
+                                        
+                                    </BoxContainer>
+                                </HorizontalSection>
                                 )
-                            })}
-                        </PreviewImageContainer>
-                        
-                    </Box>
+                        })
+                    }
+                     
+                </CartList>
+                <CartSummary>
+                    <OverviewSummary>
+                        <SummaryTitle>
+                            Order Summary
+                        </SummaryTitle>
+                    
+                        <OrderRow>
+                            <Box> Total Orders :</Box>
+                            <Box sx={{ paddingLeft: '50px', marginLeft: '50px', textAlign: 'right', float: 'right'  }}>$1234</Box>
+                        </OrderRow>
 
-                    <Box sx={{ width: '600px', padding: '40px', paddingLeft: '0px', paddingTop: '50px' }}>
-                        <Box sx={{ fontSize: '1.9em', color: 'gray', fontWeight: '600', paddingBottom: '10px' }}> 
-                            {product.price} 
-                        </Box>
+                        <OrderRow>
+                            <Box> Shipping :</Box>
+                            <Box sx={{ paddingLeft: '50px', marginLeft: '50px', textAlign: 'right', float: 'right'  }}>$1234</Box>
+                        </OrderRow>
+                    </OverviewSummary>
 
-                        <Button size="large" style={{ backgroundColor: 'black', color: 'white', borderRadius: '5px' }}>Add to Cart </Button>
+                    <OverviewFooter>
+                        <Box>$1200</Box> 
+                        <Box>Continue to payment</Box> 
+                    </OverviewFooter>
 
 
-                    </Box>
+                </CartSummary>
 
+            </CartSection>
 
-                </BoxContainer>
+            <HorizontalSection>
+                
+              
             </HorizontalSection>
 
+
             <Section>
-                <HorizontalSection style={{ height: 'auto', paddingBottom:'20px' }}>
-                    <SimpleSlider 
-                        data={productData}
-                        addToCart={addToCart}
-                        navigateToPage={navigateToPage}
-                        rtl={true}
-                        speed={3000}
-                        autoplay={true}
-                        slidesToShow={6}
-                        slidesToScroll={1}
-                        dot={false}
-                        sideTitle="People also bought"
-                    />
-                </HorizontalSection>
-
-                 <HorizontalSection style={{ height: 'auto', paddingBottom:'20px' }}>
-                    <SimpleSlider 
-                        data={productData}
-                        addToCart={addToCart}
-                        navigateToPage={navigateToPage}
-                        rtl={false}
-                        speed={3000}
-                        autoplay={true}
-                        slidesToShow={6}
-                        slidesToScroll={1}
-                        dot={false}
-                        sideTitle="Selected for you"
-                    />
-                </HorizontalSection>
-
-                <HorizontalSection style={{ height: 'auto', paddingBottom:'20px' }}>
-                    <SimpleSlider 
-                        data={productData}
-                        addToCart={addToCart}
-                        navigateToPage={navigateToPage}
-                        rtl={true}
-                        speed={3000}
-                        autoplay={true}
-                        slidesToShow={6}
-                        slidesToScroll={1}
-                        dot={false}
-                        sideTitle="You may like"
-                    />
-                </HorizontalSection>
-
                 <HorizontalSection style={{ height: 'auto', paddingBottom:'20px' }}>
                     <SimpleSlider 
                         data={productData}
@@ -270,11 +240,12 @@ const HorizontalSection = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: center;
+    align-content: center;
     background-color: white;
     margin-bottom: 30px;
     height: auto;
     border-radius: 8px;
-    min-width: 1508px;
 `
 
 const Section = styled.div`
@@ -316,15 +287,39 @@ const PreviewImage = styled.img`
     }
 `
 const BoxContainer = styled(Box)`
-  width: 50%;
+  width: 15%;
   height: 100%;
+`
+
+const ItemContainer = styled(Box)`
+  width: auto;
+  height: 100%;
+  display: block;
+`
+
+const PriceTag = styled(Box)`
+  width: auto;
+  height: 100%;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding-bottom: 10px;
+
 `
 
 const ProductTitle = styled.h3`
   font-style: bold;
-  color: grey;
-  font-size: 3em;
+  color: orange;
+  font-size: 1.4em;
   font-family: 'Anton', sans-serif;
+  width: 600px;
+`
+
+const ProductSubTitle = styled.h3`
+  font-style: bold;
+  font-weight: 600;
+  color: grey;
+  font-size: 0.9em;
+  width: 600px;
 `
 
 const PreviewImageContainer = styled(Box)`
@@ -333,4 +328,79 @@ const PreviewImageContainer = styled(Box)`
     justify-content: flex-start;
     width: auto;
     height: auto;
+`
+
+const CartSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`
+
+const CartList = styled.div`
+    width: 65%;
+    overflow: auto;
+    padding-right:10px;
+    padding-left:10px;
+    max-height: 600px;
+`
+
+const CartSummary = styled.div`
+    width: 30%;
+    background-color: black;
+    height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 15px;
+`
+
+const QtyButton = styled(Button)`
+    border: none;
+`
+
+
+const SummaryTitle = styled.div`
+    font-size: 2em;
+    color: grey;
+    padding: 20px;
+    font-weight: 600;
+`
+
+const OverviewSummary = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+    justify-content: flex-start;
+    flex:0.8;
+`
+
+const OrderRow = styled.div`
+    display: flex;
+    flex-direction: row; 
+    padding: 20px; 
+    justify-content: space-between; 
+    font-size: 1.5em;
+    color: gray; 
+    font-weight: 600;
+`
+
+const OverviewFooter = styled.div`
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    align-content: center;
+    align-items: center;
+    flex: 0.2;
+    background-color: orange;
+    margin:-30;
+    zIndex:1000;
+    border-radius:5px;
+
+    &:hover {
+        pointer: 
+    }
 `
