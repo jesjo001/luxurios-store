@@ -1,50 +1,59 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
-const cartSchema = new Schema({
-    productName: {
-        type: String,
-        required: true,
-        minlength: 5
+
+const Items = new Schema(
+    { 
+        productName: {
+            type: String,
+            required: true, 
+        },
+        itemPrice: {
+            type: String,
+            required: true, 
+        },
+        isbn: {
+            type: String,
+            required: false, 
+        },
+        productId: {
+            type: String,
+            required: true, 
+        },
+        productImg: {
+            type: String,
+            required: true, 
+        },
+        quantity: {
+            type: Number,
+            required: true, 
+        },
+        shippingStatus: {
+            type: String,
+            required: false,
+            enum: SHIPPING_STATUS
+        },
+});
+
+const cartSchema = new Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
     },
-    price: {
-        type: String,
-        required: true,
+    userName: {
+      type: String,
+      required: true,
     },
-    productImage: {
-        type: String,
-        required: true,
-    },
-    amount: {
-        type: Number,
-        required: true,
-    },
-    isbn: {
-        type: String,
-        required: true,
-        minlength: 5
-    },
-    storeId: {
-        type: String,
-        required: true,
-    },
-    status: {
-        type: String,
-        required: false,
-        enum: [ "pending", "complete", "failed", "cancelled"]
-    },
-    paymentReference: {
-        type: String,
-        required: false,
-    },
-    shippingStatus: {
-        type: String,
-        required: false,
-        enum: [ "pending", "delivered", "failed", "shipped"]
+    cartItems: {
+      type: [Items],
+      required: true,
     }
-},{
-    timestamps: true,
-})
+  },
+  { timestamps: true }
+);
+
+
 
 const Cart = mongoose.model('Cart', cartSchema);
 
